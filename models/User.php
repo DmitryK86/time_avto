@@ -4,11 +4,15 @@ namespace app\models;
 
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
+    const ROLE_ADMIN = 'admin';
+    const ROLE_USER = 'user';
+
     public $id;
     public $username;
     public $password;
     public $authKey;
     public $accessToken;
+    public $role;
 
     private static $users = [
         '100' => [
@@ -17,6 +21,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
             'password' => 'admin',
             'authKey' => 'test100key',
             'accessToken' => '100-token',
+            'role' => self::ROLE_ADMIN,
         ],
         '101' => [
             'id' => '101',

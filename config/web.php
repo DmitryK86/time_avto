@@ -15,10 +15,14 @@ function trace($data, $terminate = false){
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
+    'language' => 'ru-RU',
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+    ],
+    'as AppBehavior' => [
+        'class' => '\app\components\behaviors\AppBehavior',
     ],
     'components' => [
         'request' => [
@@ -63,20 +67,22 @@ $config = [
             ],
             'rules' => [
                 '/' => 'site/index',
+                'login' => 'site/login',
+                'logout' => 'site/logout',
                 'menu/<slug:[\w\-]+>' => 'site/menu',
                 'service/<slug:[\w\-]+>' => 'site/service',
-                'admin/<action:\w+>' => 'admin/<action>',
-                //'admin/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+                'admin/<action:\w+>' => 'admin/admin/<action>',
+                'admin' => 'admin/admin/index',
             ],
         ],
 
     ],
     'params' => $params,
-//    'modules' => [
-//        'admin' => [
-//            'class' => 'app\modules\admin\AdminModule',
-//        ],
-//    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\AdminModule',
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {

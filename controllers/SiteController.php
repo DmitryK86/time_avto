@@ -3,7 +3,9 @@
 namespace app\controllers;
 
 use app\models\ContentItems;
+use app\models\User;
 use Yii;
+use yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use app\models\LoginForm;
@@ -62,5 +64,31 @@ class SiteController extends BaseController
 
     public function getRandomPhone($count = 1){
         return array_rand(Yii::$app->params['phones'], $count);
+    }
+
+    public function actionLogin()
+    {
+        if (!\Yii::$app->user->isGuest) {
+            if (\Yii::$app->user->getIdentity()->role = User::ROLE_ADMIN){
+                $this->redirect(Url::to(['admin/admin/index']));
+            }
+        }
+
+        $model = new LoginForm();
+        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+            $this->redirect(Url::to(['admin/index']));
+        }
+
+        $model->password = '';
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionLogout()
+    {
+        $url = Yii::$app->user->logout() ? Url::home() : Url::previous();
+        $this->redirect($url);
+
     }
 }

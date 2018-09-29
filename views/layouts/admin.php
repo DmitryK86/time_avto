@@ -10,7 +10,6 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 
-AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -25,11 +24,21 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="wrap">
-    <div class="container">
+        <div class="col-md-2">
+            <?php echo \app\modules\admin\widgets\LeftTabs::widget();?>
+        </div>
+    <div class="col-md-10">
         <?= $content; ?>
     </div>
+
 </div>
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
+
+<style>
+    .wrap {
+        margin-top: 15px;
+    }
+</style>
