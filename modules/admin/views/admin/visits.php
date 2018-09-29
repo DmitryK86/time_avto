@@ -4,7 +4,6 @@
  * @var array $days
  * @var array $visits
  */
-\yiier\chartjs\ChartJsAsset::register($this);
 ?>
 
 <?= \yiier\chartjs\ChartJs::widget([
