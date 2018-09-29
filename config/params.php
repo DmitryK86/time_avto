@@ -2,6 +2,8 @@
 
 return [
     'email' => 'timeavto88@gmail.com',
+    'adminEmail' => 'admin@timeavto.com.ua',
+    'supportEmail' => 'info@timeavto.com.ua',
     'appName' => 'СТО Тайм Авто',
     'address' => 'г.Киев, ул.Обуховская, 135',
     'phones' => ['+38 (067) 760-98-88', '+38 (050) 888-26-65'],

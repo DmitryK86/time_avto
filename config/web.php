@@ -66,11 +66,17 @@ $config = [
                 'menu/<slug:[\w\-]+>' => 'site/menu',
                 'service/<slug:[\w\-]+>' => 'site/service',
                 'admin/<action:\w+>' => 'admin/<action>',
+                //'admin/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
             ],
         ],
 
     ],
     'params' => $params,
+//    'modules' => [
+//        'admin' => [
+//            'class' => 'app\modules\admin\AdminModule',
+//        ],
+//    ],
 ];
 
 if (YII_ENV_DEV) {
