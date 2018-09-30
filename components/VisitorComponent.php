@@ -32,7 +32,7 @@ class VisitorComponent
         $cookies = \Yii::$app->response->cookies;
 
         $cookies->add(new \yii\web\Cookie([
-            'name' => self::VISITOR,
+            'name' => self::VISITOR_TODAY,
             'value' => 1,
             'expire' => strtotime('tomorrow'),
         ]));
