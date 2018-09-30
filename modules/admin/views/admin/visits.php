@@ -4,6 +4,9 @@
  * @var array $days
  * @var array $visits
  */
+
+$this->title = Yii::t('app', 'Посещаемость');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?= \yiier\chartjs\ChartJs::widget([
@@ -16,7 +19,7 @@
         'labels' => $days,
         'datasets' => [
             [
-                'label'=> 'Посещения',
+                'label'=> Yii::t('app', 'Статистика по дням'),
                 'data' => $visits,
             ],
         ]

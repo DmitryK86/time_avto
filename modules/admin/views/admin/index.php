@@ -2,9 +2,9 @@
 /**
  * @var \yii\web\View $this
  */
+
 $this->title = Yii::t('app', 'Админка');
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
 <blockquote>
     <h2>Добро пожаловать</h2>

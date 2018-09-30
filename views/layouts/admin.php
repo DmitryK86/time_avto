@@ -28,6 +28,10 @@ use app\assets\AppAsset;
             <?php echo \app\modules\admin\widgets\LeftTabs::widget();?>
         </div>
     <div class="col-md-10">
+        <?= Breadcrumbs::widget([
+            'homeLink' => ['label' => 'Админка', 'url' => Yii::$app->urlManager->createUrl('admin/admin/index')],
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []
+        ]);?>
         <?= $content; ?>
     </div>
 

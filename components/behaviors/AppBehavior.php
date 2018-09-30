@@ -20,7 +20,7 @@ class AppBehavior extends Behavior
     }
 
     public function beforeAction(){
-        if (VisitorComponent::isNewVisitor()){
+        if (VisitorComponent::isNewVisitorToday() && !VisitorComponent::checkIsBot()){
             VisitorComponent::updateVisitsCounters();
         }
     }

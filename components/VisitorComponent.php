@@ -7,8 +7,14 @@ use yii\web\Cookie;
 class VisitorComponent
 {
     const VISITOR = '_visitor';
+    const VISITOR_TODAY = '_visitor_today';
+
     public static function isNewVisitor(){
         return !isset(\Yii::$app->request->cookies[self::VISITOR]);
+    }
+
+    public static function isNewVisitorToday(){
+        return !isset(\Yii::$app->request->cookies[self::VISITOR_TODAY]);
     }
 
     public static function updateVisitsCounters(){
@@ -28,7 +34,15 @@ class VisitorComponent
         $cookies->add(new \yii\web\Cookie([
             'name' => self::VISITOR,
             'value' => 1,
-            'expire' => time() + 60 * 60 * 24 * 365,
+            'expire' => strtotime('tomorrow'),
         ]));
+    }
+
+    public static function checkIsBot(){
+        $ua = \Yii::$app->request->userAgent;
+        if (empty($ua) || strpos($ua, 'YandexBot') !== false || strpos($ua, 'Googlebot') !== false){
+            return true;
+        }
+        return false;
     }
 }
