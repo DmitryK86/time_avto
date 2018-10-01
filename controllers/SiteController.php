@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-use app\models\ContentItems;
+use app\models\MenuItems;
+use app\models\ServiceItems;
 use app\models\User;
 use Yii;
 use yii\helpers\Url;
@@ -20,46 +21,30 @@ class SiteController extends BaseController
      */
     public function actionIndex()
     {
-        $serviceItems = ContentItems::findAll(['enabled' => true, 'type' => ContentItems::TYPE_SERVICE]);
+        $serviceItems = ServiceItems::findAll(['enabled' => true]);
         return $this->render('index', ['serviceItems' => $serviceItems]);
     }
 
     public function actionMenu(string $slug)
     {
-        return $this->render('menuItem', ['model' => $this->getModel($slug)]);
-    }
-
-    public function actionService(string $slug)
-    {
-        return $this->render('serviceItem', ['model' => $this->getModel($slug)]);
-    }
-
-    protected function getModel($slug){
-        $model = ContentItems::find()->where(['slug' => $slug])->one();
+        $model = MenuItems::find()->where(['slug' => $slug])->one();
 
         if (!$model){
             throw new NotFoundHttpException('The requested page does not exist.');
         }
 
-        return $model;
+        return $this->render('menuItem', ['model' => $model]);
     }
 
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
-    public function actionContact()
+    public function actionService(string $slug)
     {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
-            Yii::$app->session->setFlash('contactFormSubmitted');
+        $model = ServiceItems::find()->where(['slug' => $slug])->one();
 
-            return $this->refresh();
+        if (!$model){
+            throw new NotFoundHttpException('The requested page does not exist.');
         }
-        return $this->render('contact', [
-            'model' => $model,
-        ]);
+
+        return $this->render('serviceItem', ['model' => $model]);
     }
 
     public function getRandomPhone($count = 1){

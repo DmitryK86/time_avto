@@ -1,7 +1,7 @@
 <?php
 namespace app\widgets;
 
-use app\models\ContentItems;
+use app\models\MenuItems;
 use yii\base\Widget;
 /**
  * Class HeaderMenu
@@ -11,7 +11,7 @@ class Menu extends Widget
 {
     public function run()
     {
-        $menuItems = ContentItems::findAll(['enabled' => true, 'type' => ContentItems::TYPE_MENU]);
+        $menuItems = MenuItems::findAll(['enabled' => true]);
 
         return $this->render('menu', ['items' => $menuItems]);
     }

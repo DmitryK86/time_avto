@@ -16,17 +16,16 @@ use Yii;
  * @property string $icon
  * @property string $seo_keywords
  * @property string $seo_description
+ * @property string $seo_h1
  */
-class ContentItems extends \yii\db\ActiveRecord
+class MenuItems extends \yii\db\ActiveRecord
 {
-    const TYPE_MENU = 'menu';
-    const TYPE_SERVICE = 'service';
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'content_items';
+        return 'menu_items';
     }
 
     /**
@@ -35,10 +34,10 @@ class ContentItems extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['slug', 'title', 'type'], 'required'],
+            [['slug', 'title'], 'required'],
             [['type'], 'string'],
             [['enabled'], 'integer'],
-            [['slug', 'title'], 'string', 'max' => 50],
+            [['slug', 'title', 'seo_h1'], 'string', 'max' => 50],
             [['comment', 'icon', 'seo_keywords', 'seo_description'], 'string', 'max' => 250],
             [['slug'], 'unique'],
         ];
@@ -50,15 +49,15 @@ class ContentItems extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'slug' => 'Slug',
-            'title' => 'Title',
-            'type' => 'Type',
-            'enabled' => 'Enabled',
-            'comment' => 'Comment',
-            'icon' => 'Icon',
-            'seo_keywords' => 'Seo Keywords',
-            'seo_description' => 'Seo Description',
+            'id' => Yii::t('app', 'ID'),
+            'slug' => Yii::t('app', 'Slug'),
+            'title' => Yii::t('app', 'Название'),
+            'enabled' => Yii::t('app', 'Включено'),
+            'comment' => Yii::t('app', 'Коментарий'),
+            'icon' => Yii::t('app', 'Иконка'),
+            'seo_keywords' => Yii::t('app', 'Seo Ключевые слова'),
+            'seo_description' => Yii::t('app', 'Seo Описание'),
+            'seo_h1' => Yii::t('app', 'Заголовок h1'),
         ];
     }
 }

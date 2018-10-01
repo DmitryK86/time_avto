@@ -6,7 +6,9 @@
 ?>
 
 <div class="col-sm-4 col-md-3">
-    <div class="h3 decor-block">Услуги</div>
+    <div class="h3 decor-block">
+        <?= Yii::t('app', 'Услуги');?>
+    </div>
     <ul class="sidebar">
         <?php foreach ($serviceItems as $item):?>
         <li>

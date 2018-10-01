@@ -1,16 +1,16 @@
 <?php
 
-use \app\models\ContentItems;
+use \app\models\ServiceItems;
 /**
  * @var \yii\web\View $this
- * @var \app\models\ContentItems $model
+ * @var \app\models\ServiceItems $model
  */
 ?>
 
 <div class="nav-units">
     <div class="container">
         <div class="row">
-            <?php foreach (ContentItems::findAll(['enabled' => true, 'type' => ContentItems::TYPE_SERVICE]) as $item):?>
+            <?php foreach (ServiceItems::findAll(['enabled' => true]) as $item):?>
                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="unit">
                         <a href="<?= \yii\helpers\Url::to(['site/service', 'slug' => $item->slug]);?>">

@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \yii\web\View $this
- * @var \app\models\ContentItems $model
+ * @var \app\models\ServiceItems $model
  */
 
 use yii\widgets\Breadcrumbs;

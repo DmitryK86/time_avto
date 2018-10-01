@@ -1,7 +1,7 @@
 <?php
 /**
  * @var \yii\web\View $this
- * @var \app\models\ContentItems $model
+ * @var \app\models\MenuItems $model
  */
 
 $this->title = $model->title .' | '. Yii::$app->params['appName'];

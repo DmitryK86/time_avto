@@ -1,8 +1,8 @@
 <?php
 namespace app\widgets;
-use app\models\ContentItems;
-use yii\base\Widget;
 
+use app\models\ServiceItems;
+use yii\base\Widget;
 /**
  * Class LeftMenu
  * @package app\widgets
@@ -11,7 +11,7 @@ class LeftMenu extends Widget
 {
     public function run()
     {
-        $serviceItems = ContentItems::findAll(['enabled' => true, 'type' => ContentItems::TYPE_SERVICE]);
+        $serviceItems = ServiceItems::findAll(['enabled' => true]);
         if ($serviceItems){
             return $this->render('leftMenu', ['serviceItems' => $serviceItems]);
         }

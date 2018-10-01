@@ -72,7 +72,9 @@ $config = [
                 'menu/<slug:[\w\-]+>' => 'site/menu',
                 'service/<slug:[\w\-]+>' => 'site/service',
                 'admin/<action:\w+>' => 'admin/admin/<action>',
+                'menu-items/<action:\w+>' => 'admin/menu/<action>',
                 'admin' => 'admin/admin/index',
+                'menu-items' => 'admin/menu/index',
             ],
         ],
 

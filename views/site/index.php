@@ -48,7 +48,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => 'СТО Тайм �
                     <span class="image">
                         <img alt="" src="/img/svg/24-7.svg" style="height:72px;">
                     </span>
-                    <span class="title">Автосервис работает<br>без выходных</span>
+                    <span class="title">Оперативный подбор<br>и доставка запчастей</span>
                 </div>
                 <div class="col-sm-2_4">
                     <span class="image">
