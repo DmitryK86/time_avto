@@ -1,11 +1,10 @@
 <?php
 namespace app\modules\admin\controllers;
 
-use app\models\LoginForm;
+use app\components\Translit;
 use app\models\Visits;
 use app\modules\admin\components\AdminBaseController;
 use yii\helpers\Url;
-use yii\web\Response;
 
 /**
  * Class AdminController
@@ -32,5 +31,21 @@ class AdminController extends AdminBaseController
         }
 
         return $this->render('visits', ['days' => array_reverse($days), 'visits' => array_reverse($visitorsCount)]);
+    }
+
+    /**
+     * @param $str string
+     */
+    public function actionSlug($str)
+    {
+        $translit = new Translit();
+
+        $result = $translit->translit($str, true, 'ru-en');
+        $result = preg_replace('/[`\'\"]+/', '', $result);
+        $result = preg_replace('/[^a-zA-Z0-9_\x7f-\xff]+/', '-', $result);
+        $result = mb_strtolower($result, \Yii::$app->charset);
+        $result = trim($result, '-');
+
+        $this->ajaxResponse($result);
     }
 }

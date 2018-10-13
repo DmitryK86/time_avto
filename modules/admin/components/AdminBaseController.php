@@ -31,4 +31,11 @@ class AdminBaseController extends Controller
             ],
         ];
     }
+
+    public function ajaxResponse($response, $terminate = true){
+        header('Content-Type: application/json; charset="UTF-8"');
+
+        echo json_encode($response);
+        if($terminate == true) \Yii::$app->end();
+    }
 }

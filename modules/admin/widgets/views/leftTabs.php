@@ -9,20 +9,20 @@
         [
             'label' => Yii::t('app', 'Главная'),
             'url' => [Yii::$app->urlManager->createUrl('admin/admin/index')],
-            'active' => Yii::$app->requestedAction->id == 'index' && Yii::$app->requestedAction->controller->id == 'admin',
+            'active' => Yii::$app->requestedAction->controller->id == 'admin' && Yii::$app->requestedAction->id == 'index',
         ],
         [
             'label' => Yii::t('app','Посещаемость'),
             'url' => [Yii::$app->urlManager->createUrl('admin/admin/visits')],
-            'active' => Yii::$app->requestedAction->id == 'visits',
+            'active' => Yii::$app->requestedAction->controller->id == 'admin' && Yii::$app->requestedAction->id == 'visits',
         ],
         [
-            'label' => Yii::t('app','Элементы меню'),
+            'label' => Yii::t('app','Страници меню'),
             'url' => [Yii::$app->urlManager->createUrl('admin/menu/index')],
-            'active' => Yii::$app->requestedAction->id == 'index' && Yii::$app->requestedAction->controller->id == 'menu',
+            'active' => Yii::$app->requestedAction->controller->id == 'menu',
         ],
         [
-            'label' => Yii::t('app','Таб3'),
+            'label' => Yii::t('app','Страници услуг'),
             'url' => ['site/contacts']],
         [
             'label' => Yii::t('app','Выход'),

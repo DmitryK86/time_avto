@@ -10,7 +10,6 @@ use Yii;
  * @property int $id
  * @property string $slug
  * @property string $title
- * @property string $type
  * @property int $enabled
  * @property string $comment
  * @property string $icon
@@ -35,7 +34,6 @@ class MenuItems extends \yii\db\ActiveRecord
     {
         return [
             [['slug', 'title'], 'required'],
-            [['type'], 'string'],
             [['enabled'], 'integer'],
             [['slug', 'title', 'seo_h1'], 'string', 'max' => 50],
             [['comment', 'icon', 'seo_keywords', 'seo_description'], 'string', 'max' => 250],
@@ -50,7 +48,7 @@ class MenuItems extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'slug' => Yii::t('app', 'Slug'),
+            'slug' => Yii::t('app', 'URL'),
             'title' => Yii::t('app', 'Название'),
             'enabled' => Yii::t('app', 'Включено'),
             'comment' => Yii::t('app', 'Коментарий'),
@@ -59,5 +57,10 @@ class MenuItems extends \yii\db\ActiveRecord
             'seo_description' => Yii::t('app', 'Seo Описание'),
             'seo_h1' => Yii::t('app', 'Заголовок h1'),
         ];
+    }
+
+    public function toggle(){
+        $this->enabled = !$this->enabled;
+        return $this->save(false);
     }
 }

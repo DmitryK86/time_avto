@@ -5,7 +5,7 @@ use yii\db\Migration;
 /**
  * Class m180904_181359_add_default_menu_items
  */
-class m180904_181359_add_default_content_items extends Migration
+class m180904_181359_add_default_menu_items extends Migration
 {
     /**
      * {@inheritdoc}
