@@ -16,7 +16,7 @@ class VisitorComponent
 
     public static function isNewVisitorToday(){
         $cookies = \Yii::$app->request->cookies;
-        return !$cookies->has(self::VISITOR_TODAY) && !$cookies->has(self::VISITOR_ADMIN);
+        return !($cookies->has(self::VISITOR_TODAY) || $cookies->has(self::VISITOR_ADMIN));
     }
 
     public static function updateVisitsCounters(){
