@@ -23,12 +23,11 @@ $this->params['breadcrumbs'][] = $model->title;
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []
                     ]);?>
                 </div>
-                <?php echo $this->render('service_pages/' . $model->slug); ?>
+                <?php echo $this->render('service_pages/' . $model->slug, ['model' => $model]); ?>
             </div>
 
             <div class="col-sm-12 col-md-3 right-col">
                 <?php echo \app\widgets\WorkProgress::widget(['model' => $model]); ?>
-                <?php /*echo $this->render('service_pages/progress/' . $model->slug); */?>
             </div>
         </div>
     </div>

@@ -17,7 +17,7 @@ use Yii;
  * @property string $seo_description
  * @property string $seo_h1
  */
-class ServiceItems extends \yii\db\ActiveRecord
+class ServiceItems extends BaseActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -47,15 +47,15 @@ class ServiceItems extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'slug' => 'Slug',
-            'title' => 'Title',
-            'enabled' => 'Enabled',
-            'comment' => 'Comment',
-            'icon' => 'Icon',
-            'seo_keywords' => 'Seo Keywords',
-            'seo_description' => 'Seo Description',
-            'seo_h1' => 'Seo H1',
+            'id' => Yii::t('app', 'ID'),
+            'slug' => Yii::t('app', 'URL'),
+            'title' => Yii::t('app', 'Название'),
+            'enabled' => Yii::t('app', 'Включено'),
+            'comment' => Yii::t('app', 'Коментарий'),
+            'icon' => Yii::t('app', 'Иконка'),
+            'seo_keywords' => Yii::t('app', 'Seo Keywords'),
+            'seo_description' => Yii::t('app', 'Seo Description'),
+            'seo_h1' => Yii::t('app', 'Seo H1'),
         ];
     }
 }

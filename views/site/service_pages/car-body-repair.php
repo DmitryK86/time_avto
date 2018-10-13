@@ -1,12 +1,13 @@
 <?php
 /**
- *
+ * @var \yii\web\View $this
+ * @var \app\models\ServiceItems $model
  */
 ?>
 
 <div class="main-content">
     <div class="decor-h1">
-        <h1>Кузовной ремонт и покраска автомобиля</h1>
+        <h1><?= $model->seo_h1;?></h1>
     </div>
     <p>СТО Тайм Авто предлагает профессиональный кузовной ремонт автомобиля. Мы работаем с любым видом повреждений любых марок машин.</p>
 

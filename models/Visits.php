@@ -9,7 +9,7 @@ namespace app\models;
  * @property string $date
  * @property int $visits
  */
-class Visits extends \yii\db\ActiveRecord
+class Visits extends BaseActiveRecord
 {
     /**
      * {@inheritdoc}

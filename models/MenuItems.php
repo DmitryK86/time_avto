@@ -17,7 +17,7 @@ use Yii;
  * @property string $seo_description
  * @property string $seo_h1
  */
-class MenuItems extends \yii\db\ActiveRecord
+class MenuItems extends BaseActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -57,10 +57,5 @@ class MenuItems extends \yii\db\ActiveRecord
             'seo_description' => Yii::t('app', 'Seo Описание'),
             'seo_h1' => Yii::t('app', 'Заголовок h1'),
         ];
-    }
-
-    public function toggle(){
-        $this->enabled = !$this->enabled;
-        return $this->save(false);
     }
 }
