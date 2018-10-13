@@ -22,8 +22,10 @@
             'active' => Yii::$app->requestedAction->controller->id == 'menu',
         ],
         [
-            'label' => Yii::t('app','Страници услуг'),
-            'url' => ['site/contacts']],
+            'label' => Yii::t('app','Страници сервисов'),
+            'url' => [Yii::$app->urlManager->createUrl('admin/service/index')],
+            'active' => Yii::$app->requestedAction->controller->id == 'service',
+        ],
         [
             'label' => Yii::t('app','Выход'),
             'url' => [Yii::$app->urlManager->createUrl('site/logout')]],
