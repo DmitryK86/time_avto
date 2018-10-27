@@ -2,6 +2,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\ServiceItems;
+use app\models\SubserviceItems;
 use app\modules\admin\components\AdminBaseController;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
@@ -28,11 +29,10 @@ class ServiceController extends AdminBaseController
     public function actionUpdate($id){
         $model = $this->getModel($id);
 
-
         if ($model->load(\Yii::$app->request->post())){
             if ($model->save()){
                 \Yii::$app->session->setFlash('success', 'Страница меню обновлена');
-                $this->redirect(Url::to(['index']));
+                return $this->redirect(Url::to(['index']));
             }
         }
 
@@ -44,8 +44,8 @@ class ServiceController extends AdminBaseController
 
         if ($model->load(\Yii::$app->request->post())){
             if ($model->save()){
-                \Yii::$app->session->setFlash('success', 'Страница меню обновлена');
-                $this->redirect(Url::to(['index']));
+                \Yii::$app->session->setFlash('success', 'Страница меню создана');
+                return $this->redirect(Url::to(['index']));
             }
         }
 
@@ -67,6 +67,51 @@ class ServiceController extends AdminBaseController
         }
 
         return false;
+    }
+
+    public function actionSubservice($serviceId){
+        $model = $this->getModel($serviceId);
+
+        if ($subservicesData = \Yii::$app->request->post('SubserviceItems')){
+            $subservicesData = array_filter($subservicesData, function ($data){
+                return array_filter($data);
+            });
+
+            $transaction = \Yii::$app->db->beginTransaction();
+            try{
+                /** @var SubserviceItems $subservice */
+                for ($i = 0; $i < count($subservicesData); $i++){
+                    $subservice = $model->subservices[$i] ?? new SubserviceItems();
+
+                    if ($subservice->load($subservicesData[$i], '')){
+                        if ($subservice->isNewRecord){
+                            $subservice->service_id = $model->id;
+                        }
+
+                        if ($subservice->save()){
+                            continue;
+                        }
+                        else{
+                            throw new \Exception(implode('<br>', $subservice->getErrorSummary(false)));
+                        }
+                    }
+                    else{
+                        throw new \Exception('Subservice data not load');
+                    }
+                }
+
+                $transaction->commit();
+            }
+            catch (\Exception $e){
+                $transaction->rollBack();
+                \Yii::$app->session->setFlash('error', $e->getMessage());
+            }
+
+            \Yii::$app->session->addFlash('success', 'Данные успешно сохранены');
+            return $this->refresh();
+        }
+
+        return $this->render('subservice', ['model' => $model]);
     }
 
     protected function getModel($id){

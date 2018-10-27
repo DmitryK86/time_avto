@@ -14,7 +14,7 @@ class AdminController extends AdminBaseController
 {
     public function actionIndex(){
         if (\Yii::$app->user->isGuest){
-            $this->redirect(Url::to('site/login'));
+            return $this->redirect(Url::to('site/login'));
         }
 
         return $this->render('index');

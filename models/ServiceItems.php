@@ -58,4 +58,9 @@ class ServiceItems extends BaseActiveRecord
             'seo_h1' => Yii::t('app', 'Seo H1'),
         ];
     }
+
+    public function getSubservices()
+    {
+        return $this->hasMany(SubserviceItems::class, ['service_id' => 'id']);
+    }
 }

@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php
 $form = ActiveForm::begin([
-    'id' => 'login-form',
+    'id' => 'service-form',
     'options' => ['class' => 'form-vertical'],
 ]) ?>
 <?= $form->field($model, 'title'); ?>
@@ -29,6 +29,7 @@ $form = ActiveForm::begin([
 <div class="form-group">
     <div class="col-lg-offset-1 col-lg-11">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= Html::tag('a', 'Редактировать услуги', ['class' => 'btn btn-info', 'href' => \yii\helpers\Url::to(['service/subservice', 'serviceId' => $model->id])]);?>
     </div>
 </div>
 <?php ActiveForm::end() ?>

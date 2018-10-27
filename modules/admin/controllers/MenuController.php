@@ -32,7 +32,7 @@ class MenuController extends AdminBaseController
         if ($model->load(\Yii::$app->request->post())){
             if ($model->save()){
                 \Yii::$app->session->setFlash('success', 'Страница меню обновлена');
-                $this->redirect(Url::to(['index']));
+                return $this->redirect(Url::to(['index']));
             }
         }
 
@@ -45,7 +45,7 @@ class MenuController extends AdminBaseController
         if ($model->load(\Yii::$app->request->post())){
             if ($model->save()){
                 \Yii::$app->session->setFlash('success', 'Страница меню обновлена');
-                $this->redirect(Url::to(['index']));
+                return $this->redirect(Url::to(['index']));
             }
         }
 

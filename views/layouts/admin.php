@@ -5,12 +5,10 @@
 
 use app\widgets\Alert;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
+use app\assets\AdminAsset;
 
-\app\assets\AdminAsset::register($this);
+AdminAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -24,7 +22,7 @@ use app\assets\AppAsset;
 </head>
 <body>
 <?php $this->beginBody() ?>
-<div class="wrap">
+<div class="wrapper">
         <div class="col-md-2">
             <?php echo \app\modules\admin\widgets\LeftTabs::widget();?>
         </div>
@@ -33,17 +31,16 @@ use app\assets\AppAsset;
             'homeLink' => ['label' => 'Админка', 'url' => Yii::$app->urlManager->createUrl('admin/admin/index')],
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []
         ]);?>
-        <?= $content; ?>
+        <div class="main-content">
+            <?= Alert::widget();?>
+            <?= $content; ?>
+        </div>
     </div>
-
+    <div class="col-md-12 footer">
+        Made by DmitryK. All rights reserved. <?= date('Y');?>
+    </div>
 </div>
 <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
-
-<style>
-    .wrap {
-        margin-top: 15px;
-    }
-</style>

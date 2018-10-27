@@ -71,10 +71,12 @@ $config = [
                 'logout' => 'site/logout',
                 'menu/<slug:[\w\-]+>' => 'site/menu',
                 'service/<slug:[\w\-]+>' => 'site/service',
+
+                // admins
+                'admin/<controller:[\w-]+>/<action:[\w-]+>' => 'admin/<controller>/<action>',
                 'admin/<action:\w+>' => 'admin/admin/<action>',
-                'menu-items/<action:\w+>' => 'admin/menu/<action>',
+
                 'admin' => 'admin/admin/index',
-                'menu-items' => 'admin/menu/index',
             ],
         ],
 
