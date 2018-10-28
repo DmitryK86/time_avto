@@ -101,13 +101,13 @@ class ServiceController extends AdminBaseController
                 }
 
                 $transaction->commit();
+                \Yii::$app->session->addFlash('success', 'Данные успешно сохранены');
             }
             catch (\Exception $e){
                 $transaction->rollBack();
                 \Yii::$app->session->setFlash('error', $e->getMessage());
             }
 
-            \Yii::$app->session->addFlash('success', 'Данные успешно сохранены');
             return $this->refresh();
         }
 

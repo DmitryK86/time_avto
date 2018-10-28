@@ -16,9 +16,11 @@ $columns = [
     'title',
     'comment',
     [
+        'header' => Yii::t('app', 'Управление'),
         'class' => 'yii\grid\ActionColumn',
-        'template' => '{toggle} {update}',
-        'contentOptions' => ['style' => 'text-align:center;'],
+        'template' => '{toggle} {update} {subservice-edit}',
+        'headerOptions' => ['class' => 'header-control-btns'],
+        'contentOptions' => ['class' => 'control-btns'],
         'buttons' => [
             'toggle' => function($url, $model, $key) {
                 $title = $model->enabled ? 'Выключить' : 'Включить';
@@ -27,6 +29,12 @@ $columns = [
                     'title' => $title,
                     'style' => 'color:' . $color,
                     'data-pjax' => '#model-grid',
+                ]);
+            },
+            'subservice-edit' => function($url, $model, $key) {
+                $url = \yii\helpers\Url::to(['service/subservice', 'serviceId' => $model->id]);
+                return \yii\helpers\Html::a('<span class="glyphicon glyphicon-usd"></span>', $url, [
+                    'title' => Yii::t('app', 'Управление ценами'),
                 ]);
             }
         ]

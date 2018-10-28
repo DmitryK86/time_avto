@@ -29,3 +29,16 @@ div.required label.control-label:after {
     color: darkgray;
     margin: 30px 0 10px;
 }
+
+table thead .header-control-btns {
+    width:15%;
+    text-align:center
+}
+
+table tbody .control-btns {
+    text-align:center;
+}
+
+table tbody .control-btns a {
+    margin-right: 5px;
+}

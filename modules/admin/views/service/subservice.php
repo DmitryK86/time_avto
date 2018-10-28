@@ -3,6 +3,10 @@
  * @var \yii\web\View $this
  * @var \app\models\ServiceItems $model
  */
+$this->title = Yii::t('app', 'Редактирование стоимости услуг');
+$this->params['breadcrumbs'][] =  ['label' => Yii::t('app', 'Управление элементами сервиса'), 'url'=> ['service/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Редактирование ') . $model->title, 'url'=> [\yii\helpers\Url::to(['service/update', 'id' => $model->id])]];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <h3>Прайс для сервиса "<?= $model->title;?>"</h3>
