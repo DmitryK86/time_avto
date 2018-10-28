@@ -8,6 +8,7 @@
 <?= \yii\grid\GridView::widget([
     'dataProvider' => $provider,
     'showOnEmpty' => false,
+    'headerRowOptions' => ['style' => 'vertical-align:middle'],
     'layout' => '{items}',
     'columns' => [
         [
