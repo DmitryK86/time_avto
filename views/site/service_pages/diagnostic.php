@@ -1,6 +1,7 @@
 <?php
 /**
- *
+ * @var \yii\web\View $this
+ * @var \app\models\ServiceItems $model
  */
 ?>
 
@@ -16,28 +17,9 @@
 
     <h2>Цены на компьютерную диагностику двигателя</h2>
 
-    <table>
-        <thead class="tableHeader-processed">
-        <tr>
-            <th>Тип автомобиля</th>
-            <th>Цена в гривнах от</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Отечественные легковые автомобили</td>
-            <td>1 000</td>
-        </tr>
-        <tr>
-            <td>Иностранные легковые автомобили</td>
-            <td>1 000</td>
-        </tr>
-        <tr>
-            <td>&nbsp;Микроавтобусы</td>
-            <td>1 000</td>
-        </tr>
-        </tbody>
-    </table>
+    <?php if ($model->hasPrice()):?>
+        <?php echo \app\widgets\Price::widget(['model' => $model]);?>
+    <?php endif;?>
 
     <p>Узнайте цены для вашего бренда и модели автомобиля, позвоните по телефону +38 (050) 888-26-65.</p>
 

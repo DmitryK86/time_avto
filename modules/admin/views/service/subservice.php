@@ -63,8 +63,7 @@ $form = \yii\widgets\ActiveForm::begin([
             newFields.find('input').each(function () {
                 var name = $(this).attr('name');
                 var num = Number(name.match(/\d+/)[0]);
-                var newName = name.replace(/\d+/, num + 1);
-                console.log(newName);
+                var newName = name.replace(/\d+/, ++num);
                 $(this).attr('name', newName).attr('value', '');
             });
 

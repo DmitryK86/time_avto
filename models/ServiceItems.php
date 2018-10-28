@@ -63,4 +63,9 @@ class ServiceItems extends BaseActiveRecord
     {
         return $this->hasMany(SubserviceItems::class, ['service_id' => 'id']);
     }
+
+    public function hasPrice()
+    {
+        return SubserviceItems::find()->where('service_id = :serviceId', [':serviceId' => $this->id])->exists();
+    }
 }
