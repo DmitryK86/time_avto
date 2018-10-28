@@ -62,8 +62,9 @@ $form = \yii\widgets\ActiveForm::begin([
             var newFields = $('.subservice-fields .subservice-items').last().clone();
             newFields.find('input').each(function () {
                 var name = $(this).attr('name');
-                var num = name.match(/\d/)[0];
-                var newName = name.replace(/\d/, ++num);
+                var num = Number(name.match(/\d+/)[0]);
+                var newName = name.replace(/\d+/, num + 1);
+                console.log(newName);
                 $(this).attr('name', newName).attr('value', '');
             });
 
