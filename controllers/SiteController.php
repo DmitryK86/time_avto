@@ -47,8 +47,9 @@ class SiteController extends BaseController
         return $this->render('serviceItem', ['model' => $model]);
     }
 
-    public function getRandomPhone($count = 1){
-        return array_rand(Yii::$app->params['phones'], $count);
+    public function getRandomPhone(){
+        $index = array_rand(Yii::$app->params['phones']);
+        return Yii::$app->params['phones'][$index];
     }
 
     public function actionLogin()
