@@ -12,6 +12,6 @@ services:
       - 8080:80
     entrypoint: /opt/entrypoint.sh
 
-  postgres:
-    image: postgres
+  db:
+    image: mysql
     env_file: .env
