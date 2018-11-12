@@ -11,6 +11,8 @@ use Yii;
  * @property int $service_id
  * @property string $title
  * @property string $price
+ * @property bool $is_main
+ * @property bool $enabled
  */
 class SubserviceItems extends \yii\db\ActiveRecord
 {
@@ -32,6 +34,7 @@ class SubserviceItems extends \yii\db\ActiveRecord
             [['service_id'], 'integer'],
             [['price'], 'string', 'min' => 1, 'max' => 20],
             [['title'], 'string', 'max' => 150],
+            [['is_main', 'enabled'], 'boolean']
         ];
     }
 
@@ -45,6 +48,8 @@ class SubserviceItems extends \yii\db\ActiveRecord
             'service_id' => Yii::t('app', 'Сервис ID'),
             'title' => Yii::t('app', 'Наименование работ'),
             'price' => Yii::t('app', 'Стоимость, грн.'),
+            'is_main' => Yii::t('app', 'Основной'),
+            'enabled' => Yii::t('app', 'Включен'),
         ];
     }
 

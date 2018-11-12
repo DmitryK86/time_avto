@@ -18,10 +18,15 @@ div.required label.control-label:after {
 .subservice-items .subservice-item-block {
     display: flex;
     margin-bottom: -15px;
+
 }
 
-.subservice-items .subservice-item-block .form-group:first-child {
-    min-width: 400px;
+.subservice-items .subservice-item-block .form-group {
+    margin-right: 5px;
+}
+
+.subservice-items .subservice-item-block .first-field {
+    width: 400px;
 }
 
 .footer {

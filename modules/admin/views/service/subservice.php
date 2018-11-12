@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
 $form = \yii\widgets\ActiveForm::begin([
     'id' => 'sub-service-form',
     'options' => ['class' => 'form-vertical'],
+
 ]) ?>
 
 <div class="subservice-fields">
@@ -23,15 +24,19 @@ $form = \yii\widgets\ActiveForm::begin([
     <?php if ($i ==0):?>
         <div class="subservice-items">
             <div class="subservice-item-block">
-                <?= $form->field($model->subservices[$i], "[{$i}]title"); ?>
+                <?= $form->field($model->subservices[$i], "[{$i}]title", ['options' => ['class' => 'form-group first-field']]); ?>
                 <?= $form->field($model->subservices[$i], "[{$i}]price"); ?>
+                <?= $form->field($model->subservices[$i], "[{$i}]is_main")->widget(\kartik\switchinput\SwitchInput::classname(), []); ?>
+                <?= $form->field($model->subservices[$i], "[{$i}]enabled")->widget(\kartik\switchinput\SwitchInput::classname(), []); ?>
             </div>
         </div>
     <?php else:?>
             <div class="subservice-items">
                 <div class="subservice-item-block">
-                    <?= $form->field($model->subservices[$i], "[{$i}]title")->label(false); ?>
+                    <?= $form->field($model->subservices[$i], "[{$i}]title", ['options' => ['class' => 'form-group first-field']])->label(false); ?>
                     <?= $form->field($model->subservices[$i], "[{$i}]price")->label(false); ?>
+                    <?= $form->field($model->subservices[$i], "[{$i}]is_main")->widget(\kartik\switchinput\SwitchInput::classname(), [])->label(false); ?>
+                    <?= $form->field($model->subservices[$i], "[{$i}]enabled")->widget(\kartik\switchinput\SwitchInput::classname(), [])->label(false); ?>
                 </div>
             </div>
     <?php endif;?>
@@ -40,8 +45,11 @@ $form = \yii\widgets\ActiveForm::begin([
     <?php $subservice = new \app\models\SubserviceItems();?>
     <div class="subservice-items">
         <div class="subservice-item-block">
-            <?= $form->field($subservice, "[0]title"); ?>
+            <?php $checkboxTemplate = '{input}<br>{label}';?>
+            <?= $form->field($subservice, "[0]title", ['options' => ['class' => 'form-group first-field']]); ?>
             <?= $form->field($subservice, "[0]price"); ?>
+            <?= $form->field($subservice, "[0]is_main", ['options' => ['style' => 'margin-left:15px']])->widget(\kartik\switchinput\SwitchInput::classname(), []); ?>
+            <?= $form->field($subservice, "[0]enabled", ['options' => ['style' => 'margin-left:15px']])->widget(\kartik\switchinput\SwitchInput::classname(), ['value'=>true]); ?>
         </div>
     </div>
 
