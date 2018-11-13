@@ -1,8 +1,5 @@
 <?php
 
-$params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
-
 function trace($data, $terminate = false){
     echo '<pre>';
     var_dump($data);
@@ -14,56 +11,33 @@ function trace($data, $terminate = false){
 
 $config = [
     'id' => 'basic',
-    'basePath' => dirname(__DIR__),
     'language' => 'ru-RU',
-    'bootstrap' => ['log'],
-    'aliases' => [
-        '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
-    ],
     'as AppBehavior' => [
-        'class' => '\app\components\behaviors\AppBehavior',
+        'class' => '\app\components\behaviors\AppBehavior'
+    ],
+    'modules' => [
+        'admin' => [
+            'class' => 'app\modules\admin\AdminModule'
+        ],
     ],
     'components' => [
         'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'CbX8jg4m9fJ9AxHk6IhjzOXZGIw4Zo8O',
-        ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'cookieValidationKey' => 'CbX8jg4m9fJ9AxHk6IhjzOXZGIw4Zo8O'
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'site/error'
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'useFileTransport' => true
         ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
-        'db' => $db,
-
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'normalizer' => [
                 'class' => 'yii\web\UrlNormalizer',
                 'collapseSlashes' => true,
-                'normalizeTrailingSlash' => true,
+                'normalizeTrailingSlash' => true
             ],
             'rules' => [
                 '/' => 'site/index',
@@ -76,34 +50,15 @@ $config = [
                 'admin/<controller:[\w-]+>/<action:[\w-]+>' => 'admin/<controller>/<action>',
                 'admin/<action:\w+>' => 'admin/admin/<action>',
 
-                'admin' => 'admin/admin/index',
-            ],
-        ],
-
-    ],
-    'params' => $params,
-    'modules' => [
-        'admin' => [
-            'class' => 'app\modules\admin\AdminModule',
-        ],
-    ],
+                'admin' => 'admin/admin/index'
+            ]
+        ]
+    ]
 ];
 
-if (YII_ENV_DEV) {
-    // configuration adjustments for 'dev' environment
-    $config['bootstrap'][] = 'debug';
-    $config['modules']['debug'] = [
-        'class' => 'yii\debug\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
+$envConfig = __DIR__ . '/' . YII_ENV . '/web.php';
 
-    $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
-        // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
-    ];
-}
-
-return $config;
+return \yii\helpers\ArrayHelper::merge(
+    $config,
+    file_exists($envConfig) ? require($envConfig) : []
+);
