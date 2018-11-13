@@ -33,3 +33,5 @@ tests/_support/_generated
 /.vagrant
 /runtime/*
 /yii
+
+/config/prod/params.php
