@@ -13,8 +13,8 @@ $config = [
         'db' => [
             'class' => '\yii\db\Connection',
             'dsn' => "mysql:host={$params['db']['host']};dbname={$params['db']['dbName']}",
-            'username' => 'root',
-            'password' => 'root',
+            'username' => "{$params['db']['username']}",
+            'password' => "{$params['db']['password']}",
             'charset' => 'utf8'
         ],
         'user' => [
