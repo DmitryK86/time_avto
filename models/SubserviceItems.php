@@ -34,7 +34,8 @@ class SubserviceItems extends \yii\db\ActiveRecord
             [['service_id'], 'integer'],
             [['price'], 'string', 'min' => 1, 'max' => 20],
             [['title'], 'string', 'max' => 150],
-            [['is_main', 'enabled'], 'boolean']
+            [['is_main', 'enabled'], 'boolean'],
+            [['enabled'], 'default', 'value' => true],
         ];
     }
 
