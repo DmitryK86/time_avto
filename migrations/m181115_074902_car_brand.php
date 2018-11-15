@@ -15,8 +15,8 @@ class m181115_074902_car_brand extends Migration
         $this->createTable('{{%car_brand}}', [
             'id' => $this->integer()->unique(),
             'name' => $this->string()->notNull(),
-            'logo' => $this->string(255),
-            'description' => $this->string(),
+            'logo' => $this->string(),
+            'description' => $this->text(),
             'status' => $this->boolean()
         ]);
 

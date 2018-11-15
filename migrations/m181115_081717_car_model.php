@@ -15,7 +15,7 @@ class m181115_081717_car_model extends Migration
         $this->createTable('{{%car_model}}', [
             'id' => $this->integer()->unique(),
             'name' => $this->string()->notNull(),
-            'description' => $this->string(),
+            'description' => $this->text(),
             'status' => $this->boolean(),
             'car_brand_id' => $this->integer()->notNull()
         ]);
