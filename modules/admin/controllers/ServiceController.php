@@ -3,7 +3,7 @@ namespace app\modules\admin\controllers;
 
 use app\models\ServiceItems;
 use app\models\SubserviceItems;
-use app\modules\admin\components\AdminBaseController;
+use app\modules\admin\controllers\AdminBaseController;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
 use yii\helpers\Html;
