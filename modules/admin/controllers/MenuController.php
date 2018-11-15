@@ -2,7 +2,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\MenuItems;
-use app\modules\admin\components\AdminBaseController;
+use app\modules\admin\controllers\AdminBaseController;
 use yii\data\ActiveDataProvider;
 use yii\db\Exception;
 use yii\helpers\Html;
