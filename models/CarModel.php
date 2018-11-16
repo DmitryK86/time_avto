@@ -17,6 +17,19 @@ use Yii;
  */
 class CarModel extends \yii\db\ActiveRecord
 {
+    public const CAR_MODEL_STATUS_DISABLED = 0;
+    public const CAR_MODEL_STATUS_ENABLED  = 1;
+
+    public static function create(string $name, string $description, int $status, int $car_brand_id): self
+    {
+        $model = new static();
+        $model->name = $name;
+        $model->description = $description;
+        $model->status = $status;
+        $model->car_brand_id = $car_brand_id;
+
+        return $model;
+    }
     /**
      * {@inheritdoc}
      */
@@ -44,6 +57,6 @@ class CarModel extends \yii\db\ActiveRecord
      */
     public function getCarBrand()
     {
-        return $this->hasOne(CarBrand::className(), ['id' => 'car_brand_id']);
+        return $this->hasOne(CarBrand::class, ['id' => 'car_brand_id']);
     }
 }

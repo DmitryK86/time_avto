@@ -27,6 +27,10 @@
             'active' => Yii::$app->requestedAction->controller->id == 'service',
         ],
         [
+            'label' => Yii::t('app', 'Каталог авто'),
+            'url' => ['/admin/car/brand-index']
+        ],
+        [
             'label' => Yii::t('app','Выход'),
             'url' => [Yii::$app->urlManager->createUrl('site/logout')]],
     ],
