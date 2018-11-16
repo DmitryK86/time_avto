@@ -17,6 +17,20 @@ use Yii;
  */
 class CarBrand extends \yii\db\ActiveRecord
 {
+    public const CAR_BRAND_STATUS_DISABLED = 0;
+    public const CAR_BRAND_STATUS_ENABLED  = 1;
+
+    public static function create(string $name, string $logo, string $description, int $status): self
+    {
+        $brand = new static();
+        $brand->name = $name;
+        $brand->logo = $logo;
+        $brand->description = $description;
+        $brand->status = $status;
+
+        return $brand;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -32,10 +46,10 @@ class CarBrand extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'logo' => Yii::t('app', 'Logo'),
-            'description' => Yii::t('app', 'Description'),
-            'status' => Yii::t('app', 'Status'),
+            'name' => Yii::t('app', 'Марка авто'),
+            'logo' => Yii::t('app', 'Логотип'),
+            'description' => Yii::t('app', 'Краткое описание'),
+            'status' => Yii::t('app', 'Статус'),
         ];
     }
 
@@ -44,6 +58,6 @@ class CarBrand extends \yii\db\ActiveRecord
      */
     public function getCarModels()
     {
-        return $this->hasMany(CarModel::className(), ['car_brand_id' => 'id']);
+        return $this->hasMany(CarModel::class, ['car_brand_id' => 'id']);
     }
 }

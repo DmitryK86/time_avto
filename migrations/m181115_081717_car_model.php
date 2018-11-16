@@ -13,14 +13,13 @@ class m181115_081717_car_model extends Migration
     public function safeUp()
     {
         $this->createTable('{{%car_model}}', [
-            'id' => $this->integer()->unique(),
+            'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
             'description' => $this->text(),
             'status' => $this->boolean(),
             'car_brand_id' => $this->integer()->notNull()
         ]);
 
-        $this->addPrimaryKey('car_model_pk', '{{%car_model}}', ['id']);
         $this->addForeignKey('fk_car_brand', '{{%car_model}}', 'car_brand_id', '{{%car_brand}}', 'id', 'cascade', 'cascade');
     }
 
