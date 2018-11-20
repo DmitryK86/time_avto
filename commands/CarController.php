@@ -7,14 +7,15 @@ use app\models\CarModel;
 use yii\console\Controller;
 use Yii;
 use yii\console\ExitCode;
-use yii\db\ActiveQuery;
 use yii\helpers\Console;
 
 class CarController extends Controller
 {
     public function actionAddFromFile()
     {
-        $content = file_get_contents('/var/www/commands/marks_json.txt');
+        $path = Yii::getAlias('@app') . '/commands/marks_json.txt';
+
+        $content = file_get_contents($path);
         $content = json_decode($content);
 
         $brandsCount = 0;
@@ -38,10 +39,15 @@ class CarController extends Controller
             } catch (\Exception $e) {
                 $transaction->rollBack();
                 $this->stdout(
+                    $this->ansiFormat(
+                        'Skipping brand ' . $brand . PHP_EOL,
+                        Console::BOLD, Console::FG_RED
+                    )
+                );
+                $this->stdout(
                     $this->ansiFormat($e->getMessage() . PHP_EOL,
                     Console::BOLD, Console::FG_RED)
                 );
-                exit(ExitCode::UNSPECIFIED_ERROR);
             }
         }
 
