@@ -16,6 +16,9 @@ $config = [
         'class' => '\app\components\behaviors\AppBehavior'
     ],
     'modules' => [
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
         'admin' => [
             'class' => 'app\modules\admin\AdminModule'
         ],

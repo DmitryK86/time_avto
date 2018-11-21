@@ -5,6 +5,7 @@ namespace app\modules\admin\controllers;
 use app\forms\CarBrandUpdateForm;
 use app\forms\CarModelCreateForm;
 use app\forms\CarModelUpdateForm;
+use app\models\search\CarSearch;
 use app\repositories\CarBrandRepository;
 use app\repositories\CarModelRepository;
 use app\useCases\CarService;
@@ -31,6 +32,17 @@ class CarController extends AdminBaseController
         $this->brandRepository = $brandRepository;
         $this->modelRepository = $modelRepository;
         parent::__construct($id, $module, $config);
+    }
+
+    public function actionIndex()
+    {
+        $searchModel = Yii::$container->get(CarSearch::class);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider
+        ]);
     }
 
     public function actionBrandIndex()
