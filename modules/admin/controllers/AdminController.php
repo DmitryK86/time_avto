@@ -3,7 +3,7 @@ namespace app\modules\admin\controllers;
 
 use app\components\Translit;
 use app\models\Visits;
-use app\modules\admin\components\AdminBaseController;
+use app\modules\admin\controllers\AdminBaseController;
 use yii\helpers\Url;
 
 /**
