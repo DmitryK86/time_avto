@@ -12,8 +12,6 @@ class m180904_181359_add_default_menu_items extends Migration
      */
     public function safeUp()
     {
-        $this->execute('ALTER DATABASE timeavto CHARACTER SET utf8 COLLATE utf8_general_ci');
-
         Yii::$app->db->createCommand()->batchInsert('menu_items', ['slug', 'title'], [
             ['promo', 'Акции'],
             ['services', 'Услуги'],

@@ -30,9 +30,7 @@ class m180930_195931_add_default_service_items extends Migration
      */
     public function safeDown()
     {
-        echo "m180930_195931_add_default_service_items cannot be reverted.\n";
-
-        return false;
+       $this->execute('TRUNCATE service_items');
     }
 
     /*

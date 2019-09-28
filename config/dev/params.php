@@ -6,6 +6,6 @@ return [
         'dbName' => getenv('MYSQL_DATABASE') ?: 'timeavto',
         'username' => getenv('ENV_MYSQL_USER') ?: 'root',
         'password' => getenv('MYSQL_ROOT_PASSWORD') ?: 'root',
-        'charset' => 'utf8'
+        'charset' => 'utf8mb4'
     ]
 ];

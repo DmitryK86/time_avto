@@ -12,6 +12,8 @@ class m180903_193109_menu_items extends Migration
      */
     public function safeUp()
     {
+        $this->execute('ALTER DATABASE timeavto  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
+
         $this->createTable('menu_items', [
             'id' => 'pk',
             'slug' => 'VARCHAR(50) NOT NULL UNIQUE',
@@ -30,7 +32,7 @@ class m180903_193109_menu_items extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('content_items');
+        $this->dropTable('menu_items');
     }
 
     /*
