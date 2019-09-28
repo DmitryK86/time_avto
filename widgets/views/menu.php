@@ -1,7 +1,7 @@
 <?php
 /**
  * @var yii\web\View $this
- * @var \app\models\ContentItems $items[]
+ * @var \app\models\MenuItems $items[]
  */
 ?>
 
@@ -21,11 +21,11 @@
                                 </a>
                             </li>
                             <?php if ($items):?>
-                            <?php foreach ($items as $item):?>
-                            <li>
-                                <a href="<?= \yii\helpers\Url::to(['site/menu', 'slug' => $item->slug]);?>"><?= $item->title ?></a>
-                            </li>
-                            <?php endforeach;?>
+                                <?php foreach ($items as $item):?>
+                                    <li>
+                                        <a href="<?= \yii\helpers\Url::to(['site/menu', 'slug' => $item->slug]);?>"><?= $item->title ?></a>
+                                    </li>
+                                <?php endforeach;?>
                             <?php endif;?>
                         </ul>
                         <ul class="nav navbar-nav navbar-right" style="margin-right: 0">

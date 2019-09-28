@@ -28,7 +28,13 @@
         ],
         [
             'label' => Yii::t('app','Выход'),
-            'url' => [Yii::$app->urlManager->createUrl('site/logout')]],
+            'url' => [Yii::$app->urlManager->createUrl('site/logout')]
+        ],
+        [
+            'label' => Yii::t('app','На сайт'),
+            'url' => [Yii::$app->urlManager->createUrl('site/index')]
+        ],
     ],
+
     'navType' => 'nav nav-pills nav-stacked',
 ]);?>
