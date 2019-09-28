@@ -15,7 +15,7 @@ $config = [
             'dsn' => "mysql:host={$params['db']['host']};dbname={$params['db']['dbName']}",
             'username' => "{$params['db']['username']}",
             'password' => "{$params['db']['password']}",
-            'charset' => "{{$params['db']['charset']}}"
+            'charset' => "{$params['db']['charset']}"
         ],
         'user' => [
             'class' => 'yii\web\User',
