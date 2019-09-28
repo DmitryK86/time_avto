@@ -21,7 +21,8 @@
         "bower-asset/font-awesome": "^5.3",
         "rmrevin/yii2-fontawesome": "~3.1",
         "yiier/yii2-chartjs-widget": "*",
-        "kartik-v/yii2-widget-switchinput": "dev-master"
+        "kartik-v/yii2-widget-switchinput": "dev-master",
+        "jaybizzle/crawler-detect": "1.*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

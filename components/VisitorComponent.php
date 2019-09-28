@@ -2,6 +2,7 @@
 namespace app\components;
 
 use app\models\Visits;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use yii\web\Cookie;
 
 class VisitorComponent
@@ -35,11 +36,8 @@ class VisitorComponent
     }
 
     public static function checkIsBot(){
-        $ua = \Yii::$app->request->userAgent;
-        if (empty($ua) || strpos($ua, 'YandexBot') !== false || strpos($ua, 'Googlebot') !== false){
-            return true;
-        }
-        return false;
+        $crawlerDetector = new CrawlerDetect();
+        return $crawlerDetector->isCrawler();
     }
 
     public static function setCookie($name, $value, $expired = null){
