@@ -15,7 +15,7 @@ class Price extends Widget
 
     public function run()
     {
-        $query = (new Query())->from('subservice_items')->where(['service_id' => $this->model->id]);
+        $query = (new Query())->from('subservice_items')->where(['service_id' => $this->model->id, 'enabled' => true]);
         $provider = new ActiveDataProvider([
             'query' => $query,
             'pagination' => false,
