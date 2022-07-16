@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $model->title;
             <div class="col-sm-8 col-md-6">
                 <div>
                     <?= Breadcrumbs::widget([
-                        'homeLink' => ['label' => 'Услуги', 'url' => \yii\helpers\Url::to(['site/menu', 'slug' => 'services'])],
+                        'homeLink' => ['label' => 'Послуги', 'url' => \yii\helpers\Url::to(['site/menu', 'slug' => 'services'])],
                         'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : []
                     ]);?>
                 </div>

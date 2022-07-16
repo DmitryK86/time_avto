@@ -10,10 +10,10 @@
         <h1><?= $model->seo_h1;?></h1>
     </div>
 
-    <p>В нашем <?= Yii::$app->params['appName'];?> есть офис компании "Super Insurance", осуществляющий все виды автострахования.</p>
+    <p>У нашому <?= Yii::$app->params['appName'];?> є офіс компанії "Super Insurance", який здійснює всі види автострахування.</p>
 
     <?php if ($model->hasPrice()):?>
-        <h2>Цены на автострахование</h2>
+        <h2>Ціни на автострахування</h2>
         <?php echo \app\widgets\Price::widget(['model' => $model]);?>
     <?php endif;?>
 
