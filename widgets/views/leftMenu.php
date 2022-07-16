@@ -7,7 +7,7 @@
 
 <div class="col-sm-4 col-md-3">
     <div class="h3 decor-block">
-        <?= Yii::t('app', 'Услуги');?>
+        <?= Yii::t('app', 'Послуги');?>
     </div>
     <ul class="sidebar">
         <?php foreach ($serviceItems as $item):?>

@@ -17,7 +17,7 @@
                         <ul class="nav navbar-nav navbar-left">
                             <li class="first active">
                                 <a href="<?= \yii\helpers\Url::to('/');?>">
-                                    <?= Yii::t('app', 'Главная'); ?>
+                                    <?= Yii::t('app', 'Головна'); ?>
                                 </a>
                             </li>
                             <?php if ($items):?>
@@ -32,7 +32,7 @@
                             <li class="hidden-xs absolute-sm">
                                 <a class="btn-form" href="#" onclick="featureInProgress()">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                    &nbsp; <?= Yii::t('app', 'Запись на сервис'); ?>
+                                    &nbsp; <?= Yii::t('app', 'Запис на сервіс'); ?>
                                 </a>
                             </li>
                         </ul>

@@ -6,7 +6,7 @@
 ?>
 
 <div class="stock">
-    <h4 class="ttu indent">Ход выполнения работ<br><?= $model->title;?></h4>
+    <h4 class="ttu indent">Хід виконання робіт<br><?= $model->title;?></h4>
 </div>
 <div class="gallery right">
     <?php foreach ($files as $file):?>

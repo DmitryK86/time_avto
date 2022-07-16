@@ -11,14 +11,14 @@
     'layout' => '{items}',
     'columns' => [
         [
-            'attribute' => Yii::t('app', 'Наименование работ'),
+            'attribute' => Yii::t('app', 'Іменування робіт'),
             'headerOptions' => ['style' => 'vertical-align:middle'],
             'value' => function($data){
                 return $data['title'];
             }
         ],
         [
-            'attribute' => Yii::t('app', 'Стоимость, грн.'),
+            'attribute' => Yii::t('app', 'Вартість, грн.'),
             'headerOptions' => ['style' => 'vertical-align:middle'],
             'value' => function($data){
                 return $data['price'];

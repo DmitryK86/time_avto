@@ -8,11 +8,11 @@
     <?= Yii::$app->params['address'];?>
 </p>
 
-<p><strong>Почта: </strong>
+<p><strong>Пошта: </strong>
     <a href="mailto:<?= Yii::$app->params['email'];?>"><?= Yii::$app->params['email'];?>
     </a>
     <br>
-    <strong>Телефоны:</strong>
+    <strong>Телефони:</strong>
     <?= implode(' , ', Yii::$app->params['phones']);?>
 </p>
 <br>

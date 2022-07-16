@@ -20,7 +20,7 @@
                 <div class="col-sm-3">
                     <div class="text-center">
                         <i class="far fa-clock" aria-hidden="true"></i>
-                        <span class="open-hours">Часы работы:</span><br>
+                        <span class="open-hours">Години роботи:</span><br>
                         <?php foreach (Yii::$app->params['workTime'] as $time):?>
                         <?= $time;?><br>
                         <?php endforeach;?>

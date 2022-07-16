@@ -18,9 +18,9 @@
                 <div class="tbl">
                     <div class="td">
                         <div class="slogan">
-                            <?= Yii::t('app', 'Автосервис под ключ'); ?>
+                            <?= Yii::t('app', 'Автосервіс під ключ'); ?>
                             <br>
-                            <?= Yii::t('app', 'Все виды ремонта'); ?>
+                            <?= Yii::t('app', 'Всі види ремонта'); ?>
                         </div>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
             <div class="col-sm-3">
                 <div class="tbl">
                     <div class="td">
-                        <span class="open-hours"><?= Yii::t('app', 'Часы работы'); ?>:<br>
+                        <span class="open-hours"><?= Yii::t('app', 'Години роботи'); ?>:<br>
                         <span class="icon-1">
                             <?php foreach (Yii::$app->params['workTime'] as $time): ?>
                             <?= $time; ?><br>
