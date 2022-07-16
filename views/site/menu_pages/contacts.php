@@ -4,7 +4,7 @@
  */
 ?>
 
-<p><strong>Адрес:</strong>
+<p><strong>Адреса:</strong>
     <?= Yii::$app->params['address'];?>
 </p>
 
