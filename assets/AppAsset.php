@@ -24,7 +24,7 @@ class AppAsset extends AssetBundle
         'css/jquery.tiles.min.css',
     ];
     public $js = [
-        'js/main.js',
+        'js/main.js?v=1',
     ];
     public $depends = [
         'rmrevin\yii\fontawesome\AssetBundle',

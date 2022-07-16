@@ -18,5 +18,5 @@
         </li>
         <?php endforeach;?>
     </ul>
-    <div class="stock"> <a href="<?= \yii\helpers\Url::to(['site/service', 'slug' => 'undercarriage']);?>" class="stock-service tbl"></a></div>
+<!--    <div class="stock"> <a href="--><?//= \yii\helpers\Url::to(['site/service', 'slug' => 'undercarriage']);?><!--" class="stock-service tbl"></a></div>-->
 </div>
