@@ -3,6 +3,9 @@
  * @var \yii\web\View $this
  * @var \app\models\ServiceItems $model
  */
+
+use app\helpers\PhoneHelper;
+use app\widgets\Price;
 ?>
 
 <div class="main-content">
@@ -14,11 +17,11 @@
     <?php if ($model->hasPrice()):?>
         <h2>Ціни на сезонне зберігання автошин</h2>
         <p>Вартість зберігання за 4 колеса у гривнях.</p>
-        <?php echo \app\widgets\Price::widget(['model' => $model]);?>
+        <?php echo Price::widget(['model' => $model]);?>
     <?php endif;?>
 
-    <p>Для замовлення послуги телефонуйте за автосервісом: Тайм Авто на Академмістечку +38 (050) 888-26-65 або записуйтесь на проведення робіт онлайн через форму <a>
-            href="#" onclick="featureInProgress()">запис на ремонт</a>.</p>
+    <p>Для замовлення послуги телефонуйте за автосервісом: Тайм Авто на Академмістечку <?= PhoneHelper::getPhone(); ?> або записуйтесь на проведення робіт онлайн через форму
+        <a href="#" onclick="featureInProgress()">запис на ремонт</a>.</p>
 
     <div class="section-subs"></div>
 </div>
